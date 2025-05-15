@@ -1,23 +1,24 @@
-Feature: Login na plataforma
+#language: pt
+Funcionalidade: Login na plataforma
     Como cliente da EBAC-SHOP
     Quero fazer o login (autenticação) na plataforma
     Para visualizar meus pedidos
 
 
-    Background:
-        Given que eu estou na tela de login
+    Contexto:
+        Dado que eu estou na tela de login
 
-    Scenario: Login com sucesso
-        When eu preencho os campos obrigatórios com dados válidos
-        And clico no botão "Login"
-        Then verifico que sou direcionada para a tela de checkout
+    Cenário: Login com sucesso
+        Quando eu preencho os campos obrigatórios com dados válidos
+        E clico no botão "Login"
+        Então verifico que sou direcionada para a tela de checkout
 
-    Scenario Outline: Login inválido
-        When preencho o <user> e <senha>
-        And clico no botão "Login"
-        Then é exibida a <mensagem> de erro
+    Esquema do Cenário: Login inválido
+        Quando preencho o <user> e <senha>
+        E clico no botão "Login"
+        Então é exibida a <mensagem> de erro
 
-        Examples:
+        Exemplos:
             | user               | senha          | mensagem                     |
             | "biaErro"          | "Abc123@@"     | "Usuário ou senha inválidos" |
             | "biateste.com.br"  | "Abc123@@"     | "Usuário ou senha inválidos" |
